@@ -21,12 +21,12 @@ func MustPriveges() {
 
 // Do commands with arguments.
 // 'Command' 'args' -> 'command output'.
-func ExecCmd(cmd string, arg ...string) string {
-	out, err := exec.Command(cmd, arg...).Output()
+func ExecCmd(cmd string) []byte {
+	out, err := exec.Command("sh", "-c", cmd).Output()
 	if err != nil {
-		return err.Error()
+		return []byte(err.Error())
 	}
-	return string(out)
+	return out
 }
 
 // String contains only int.
