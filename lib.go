@@ -1,11 +1,9 @@
 package utilla
 
 import (
-	"bytes"
 	"log"
 	"os/exec"
 	"os/user"
-	"slices"
 	"unicode"
 )
 
@@ -43,29 +41,29 @@ func StrIsInt(s string) bool {
 
 // Clean string from letters: "%@^&*123ewwedw" -> "123".
 // If None -> "0".
-func StringOnlyInt(str string) string {
-	var buffer bytes.Buffer
-	nums := []string{
-		"0",
-		"1",
-		"2",
-		"3",
-		"4",
-		"5",
-		"6",
-		"7",
-		"8",
-		"9",
-	}
-	for _, i := range str {
-		if slices.Contains(nums, string(i)) {
-			buffer.WriteString(string(i))
-		}
-	}
-	res := buffer.String()
-	if res != "" {
-		return res
-	} else {
-		return "0"
-	}
-}
+// func StringOnlyInt(str string) string {
+// 	var buffer bytes.Buffer
+// 	nums := []string{
+// 		"0",
+// 		"1",
+// 		"2",
+// 		"3",
+// 		"4",
+// 		"5",
+// 		"6",
+// 		"7",
+// 		"8",
+// 		"9",
+// 	}
+// 	for _, i := range str {
+// 		if slices.Contains(nums, string(i)) {
+// 			buffer.WriteString(string(i))
+// 		}
+// 	}
+// 	res := buffer.String()
+// 	if res != "" {
+// 		return res
+// 	} else {
+// 		return "0"
+// 	}
+// }
